@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similar Images</title>
+</head>
+<body>
+    <h1>Uploaded Image</h1>
+    <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" width="300">
+    
+    <h2>Top 5 Similar Images:</h2>
+    <ul>
+        {% for result in results %}
+        <li>
+            <img src="{{ url_for('static', filename='uploads/' + result[0]) }}" width="200">
+            <p>Similarity: {{ result[1] }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go Back</a>
+</body>
+</html>
