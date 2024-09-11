@@ -26,4 +26,4 @@ def find_similar_images(query_image_path, image_folder):
         similarities.append((img_name, similarity[0][0]))
 
     similarities.sort(key=lambda x: x[1], reverse=True)
-    return similarities[:5]  # Return top 5 similar images
+    return similarities[:5] 

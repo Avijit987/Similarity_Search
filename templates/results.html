@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Similar Images</title>
+    <style>
+        /* Flexbox styling for images */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .image-container li {
+            list-style-type: none;
+            text-align: center;
+            width: 220px; /* Fixed width for each box */
+            height: 300px; /* Fixed height for each box */
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <h1>Uploaded Image</h1>
     <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" width="300">
     
     <h2>Top 5 Similar Images:</h2>
-    <ul>
+    <ul class="image-container">
         {% for result in results %}
         <li>
             <img src="{{ url_for('static', filename='uploads/' + result[0]) }}" width="200">
